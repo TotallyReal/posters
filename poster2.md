@@ -18,12 +18,25 @@ version 4
 d
 d
 d
+
 **משפט**: פה יושב משפט.
+**הוכחה**:
 <details>
 <summary>
-**הוכחה:**
+(לחץ לפתיחה)
 </summary>
 כאן נמצאת ההוכחה
+  1. אחד
+  2. שתיים
+  3. שלוש
+
+  ## כותרת נוספת
+
+  * אא
+  * בב
+  * גג
+
+    **מודגש**
 </details>
 
 <iframe height="400" style="width: 100%;" scrolling="no" title="First p5.js Sketch" 
