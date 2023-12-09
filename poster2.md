@@ -20,12 +20,14 @@ d
 d
 
 **משפט**: פה יושב משפט.
+
 **הוכחה**:
-<details>
+<details dir=rtl>
 <summary>
 (לחץ לפתיחה)
 </summary>
 כאן נמצאת ההוכחה
+  
   1. אחד
   2. שתיים
   3. שלוש
@@ -36,7 +38,7 @@ d
   * בב
   * גג
 
-    **מודגש**
+    **טקסט מודגש**
 </details>
 
 <iframe height="400" style="width: 100%;" scrolling="no" title="First p5.js Sketch" 
