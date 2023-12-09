@@ -18,6 +18,13 @@ version 4
 d
 d
 d
+**משפט**: פה יושב משפט.
+<details>
+<summary>
+**הוכחה:**
+</summary>
+כאן נמצאת ההוכחה
+</details>
 
 <iframe height="400" style="width: 100%;" scrolling="no" title="First p5.js Sketch" 
 src="https://TotallyReal.github.io/posters/index2.html" 
