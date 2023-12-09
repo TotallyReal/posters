@@ -11,7 +11,7 @@ src="https://TotallyReal.github.io/posters/index2.html"
 frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
 
 
-This is a formula $$x_1,2 = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$$
+This is a formula $$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$$
 
 
 1234
