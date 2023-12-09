@@ -1,5 +1,4 @@
 ---
-layout: post
 title: My Markdown Page
 lang: he
 dir: rtl
