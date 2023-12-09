@@ -5,7 +5,7 @@ lang: "he"
 dir: "rtl"
 ---
 
-version 2
+version 3
 
 # A first-level heading
 ## A second-level heading
