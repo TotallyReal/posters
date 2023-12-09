@@ -1,4 +1,11 @@
-﻿# A first-level heading
+---
+layout: post
+title: My Markdown Page
+lang: he
+dir: rtl
+---
+ 
+ # A first-level heading
 ## A second-level heading
 ### A third-level heading
 
