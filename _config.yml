@@ -3,3 +3,5 @@ plugins:
 - jekyll-remote-theme # add this line to the plugins list if you already have one
 # kramdown:
 #  math_engine: mathjax
+title: This is a title
+description: And I even have a description
