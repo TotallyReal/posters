@@ -1,5 +1,6 @@
 ---
 title: Title of the webpage
+description: this is a description
 lang: he
 dir: rtl
 ---
