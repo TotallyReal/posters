@@ -6,3 +6,14 @@
 [Run Sketch 1](index2.html)
 
 another line
+
+
+<div>
+a
+<script src="mySketch.js" type="text/javascript"></script><script src="https://cdn.jsdelivr.net/npm/p5@1.7.0/lib/p5.js" type="text/javascript"></script>
+b
+</div>
+
+c
+
+c
