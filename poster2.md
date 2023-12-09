@@ -14,7 +14,7 @@ d
 src="https://TotallyReal.github.io/posters/index2.html" 
 frameborder="no" allowtransparency="true" allowfullscreen="true"></iframe>
 
-זוהי נוסחא בתוך שורה
+תוספת בהתחלה: זוהי נוסחא בתוך שורה
 $1+2+3+\cdots + n = \sum_1^n k = \frac{n(n+1)}{2}$.
 וזוהי נוסחא באמצע שורה $$x_{1,2} = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$$
 מאחר ומסתבר שזה לא עוזר, אז בואו ננסה ככה:
