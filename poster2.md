@@ -1,10 +1,10 @@
 ---
-title: My Markdown Page
+title: Title of the webpage
 lang: he
 dir: rtl
 ---
  
- # A first-level heading
+# A first-level heading
 ## A second-level heading
 ### A third-level heading
 
