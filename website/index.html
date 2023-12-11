@@ -1,1 +1,564 @@
+<!DOCTYPE html>
 
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>מיים, חשמל ואינטרנט (וגרפים מישוריים)</title>
+
+<script src="site_libs/header-attrs-2.25/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">מיים, חשמל ואינטרנט (וגרפים מישוריים)</h1>
+
+</div>
+
+
+<style>
+body {
+  direction: rtl;
+}
+</style>
+
+<!-- 
+Is there a way to align text in the editor to the right?
+It is really weird how the arrows keys work with the hebrew, 
+and it is difficult reading and writing when there is both Hebrew and
+English in the sentence.
+-->
+<div id="החוקים-של-המשחק" class="section level1">
+<h1>החוקים של המשחק</h1>
+<p>דמיינו כפר קטן שנמצא במישור שטוח, שבו יש רק שלושה בתים, וכל אחד מהם
+צריך חיבור למיים וחשמל. את הבתים מחברים למקורות המיים וחשמל ע”י צינורות
+מיים וחוטי חשמל, וכדי לחסוך בהוצאות, גם הצינורות וגם החוטים פרושים על
+האדמה. כדי למנוע בעיות בטיחותיות, אסור שצינור מיים וחוט חשמל יגעו אחד
+בשני. האם תוכלו למצוא דרך לבנות את התשתית לכפר בלי שיהיה חיתוך כזה בין
+החוטים והצינורות?</p>
+<center>
+<div class="float">
+<img src="3x2_not_connected.jpg"
+alt="נסו לחבר כל אחד מהבתים לכל אחד מהמקורות מיים וחשמל בלי חיתוך בין החיבורים" />
+<div class="figcaption">נסו לחבר כל אחד מהבתים לכל אחד מהמקורות מיים
+וחשמל בלי חיתוך בין החיבורים</div>
+</div>
+<details>
+<summary>
+לחצו לפתרון
+</summary>
+<div class="float">
+<img src="3x2_connected.jpg" alt="חיבור שלושה בתים לשני מקורות" />
+<div class="figcaption">חיבור שלושה בתים לשני מקורות</div>
+</div>
+</details>
+</center>
+<p>אחרי כמה שנים, הכפר זכה גם לחיבור אינטרנט, ועכשיו יש מקור נוסף שצריך
+לחבר לכל אחד משלושת הבתים. האם עכשיו גם תוכלו ליצור תשתית בלי שיהיה
+חיתוך בין החיבורים השונים למקורות?</p>
+<center>
+<img src="3x3_not_connected.jpg"
+alt="נסו לחבר כל אחד מהבתים לכל אחד מהמקורות מיים וחשמל בלי חיתוך בין החיבורים" /><img
+src="3x3_connected.jpg" alt="חיבור שלושה בתים לשני מקורות" />
+</center>
+<p>לא משנה כמה תנסו, הבעיה הזאת היא בלתי אפשרית לפתירה בכפר שלנו שנמצא
+במישור שטוח.</p>
+</div>
+<div id="המידול-המתמטי" class="section level1">
+<h1>המידול המתמטי</h1>
+<p>כדי לפרמל את הבעיה הזאת בצורה מתמטית, ולראות למה היא לא פתירה, נתחיל
+עם אחד המבנים הבסיסיים במתמטיקה - הגרף. הגרף המתמטי הוא פשוט אוסף של
+צמתים (נקודות) וקשתות שיכולות לחבר זוגות של צמתים. למשל, בכפר שלנו
+מלמעלה, יש שלושה בתים ושלושה מקורות למים, חשמל ואינטרנט, שנותנים לנו
+סה”כ 6 צמתים, ואנחנו רוצים לבנות סה”כ <span class="math inline">\(3
+\times 3 = 9\)</span> חיבורים או קשתות. כאשר לא אכפת לנו שהקשתות חותכות
+אחת את השנייה, נקבל גרף שנראה ככה:</p>
+<center>
+<div class="float">
+<img src="k33.jpg" alt="גרף דו צדדי מלא עם שלושה קודקודים בכל צד" />
+<div class="figcaption">גרף דו צדדי מלא עם שלושה קודקודים בכל צד</div>
+</div>
+</center>
+<p>הגרף הספציפי הזה נקרא <span class="math inline">\(K_{3,3}\)</span>
+כאשר הסימון הזה מציין שיש שני צדדים של צמתים, כל אחד בגודל 3, וכל שני
+צמתים מצדדים מנוגדים מחוברים בקשת.</p>
+<p>כאשר גרף ניתן לציור במישור, בלי קשתות שחותכות אחת את השנייה, נאמר
+שהגרף הוא <strong>גרף מישורי</strong>. במילים אחרות, הבעיה שתיארנו שקולה
+לשאלה האם הגרף <span class="math inline">\(K_{3,3}\)</span> הוא מישורי
+וזה מה שננסה לבדוק. לבסוף, כבונוס, נשאל מה קורה כאשר אנחנו לא חיים על
+המישור, האם אז כן ניתן לצייר את הגרף בלי קשתות חותכות?</p>
+<h1>
+איך בודקים אם גרף הוא מישורי?
+</h1>
+<p>איך באמת ניתן לבדוק שגרף מסויים הוא מישורי? בנוסף לצמתים וקשתות של
+גרפים רגילים, לגרפים מישוריים יש דבר נוסף שמפריד אותם מגרפים כלליים - יש
+להם “תחומים”. תחומים הם אזורים במישור שמוקפים ע”י קשתות. כדוגמא, נסתכל
+על הגרף הבא:</p>
+<center>
+<img src="planar-graph.jpg" />
+</center>
+<p>בגרף הזה יש 7 קודקודים, 9 קשתות ו 4 תחומים במישור, שמופרדים ע”י
+הקשתות.</p>
+<p>איך המספרים האלו משתנים כאשר מורידים קשת מהגרף, נניח קשת 2-3 ? במקרה
+הזה, התחומים A ו D יתמזגו לתחום אחד, ובעצם “ימחקו” את אחד מ 4 התחומים
+שהתחלנו איתם. בצורה דומה, אם נסיר את הקשת 3-4, אז תחומים A ו B יתמזגו
+לתחום אחד. מצד שני, אם נוסיף קשת, נניח 5-6, אז תחום C יתפצל לשני תחומים
+ואז יהיו סה”כ 5 תחומים. סה”כ, אנחנו רואים שהורדת קשת אחת גורמת להורדת
+תחום אחד, והוספת קשת מוסיפה תחום. התבנית הזאת נכונה כמעט תמיד, אבל יש
+מקרים יוצאי דופן. למשל, אם נסיר את קשת 1-2, אז התחום משני הצדדים שלה הוא
+D, ולכן ההסרה שלה לא תמזג שני תחומים שונים. אבל, אם נחשוב לרגע מה קרה
+פה, אז נראה שבעצם הסרת הקשת הזאת שוברת משהו פנימי בגרף - הקשירות שלו.
+גרף נקרא <strong>קשיר</strong> אם בין כל שני צמתים יש מסלול של קשתות
+שמחבר בינהן. במקרה שבו מסירים את הקשת 1-2 הגרף המתקבל יהיה לא קשיר כי
+אין דרך אחרת להגיע מצומת 1 לצומת 2. סה”כ, נראה כאילו כל עוד אנחנו
+מוסיפים או מורידים קשתות בלי לפגוע בקשירות של הגרף, זה תמיד יוריד או
+יוסיף תחום בהתאם.</p>
+<p>הטיעון למעלה פחות או יותר מרמז שעבור הוספה והורדה של קשתות, שלא פוגעת
+בקשירות, מספר הקשתות <span class="math inline">\(E\)</span> פחות מספר
+התחומים <span class="math inline">\(F\)</span> נשאר קבוע. במקרה שלנו
+הקבוע הזה יהיה <span class="math inline">\(E-F=9-4=5\)</span> . אם נשחק
+עם קצת גרפים קשירים אחרים, נקבל שההפרש הזה הוא בדיוק מספר הצמתים <span
+class="math inline">\(V\)</span> פחות 2. זה מוביל לנוסחא מאוד חשובה
+שנקראת <strong>המציין של אוילר</strong> שאומרת: <span
+class="math display">\[V-E+F=2\]</span> הנוסחא הזאת נכונה לכל גרף קשיר
+מישורי, והיא מראה לנו את הקשר בין מספר הצמתים, קשתות ותחומים של הגרף.
+יותר מכך, נשים לב ש V סור את מספר האובייקטים ה “0-מימדיים” (צמתים),
+<span class="math inline">\(E\)</span> סופר את האובייקטים ה “1-מימדיים”
+(קשתות) ו <span class="math inline">\(F\)</span> סופר את האובייקטים ה
+“2-מימדיים” (תחומים).</p>
+<p>עכשיו יש לנו את השיטה הבאה: כדי להראות שגרף קשיר הוא לא מישורי, מספיק
+להראות שלא יכול להיות שהנוסחא הזאת מתקיימת עבורו.</p>
+</div>
+<div id="הגרף-k_33-הוא-לא-מישורי" class="section level1">
+<h1>הגרף <span class="math inline">\(K_{3,3}\)</span> הוא לא מישורי</h1>
+<p>בגרף <span class="math inline">\(K_{3,3}\)</span> יש <span
+class="math inline">\(V=6\)</span> צמתים ו <span
+class="math inline">\(E=3\times 3=9\)</span> קשתות. כמה תחומים יהיו בו
+אם הוא היה מישורי?</p>
+<center>
+<div class="float">
+<img src="k33.jpg" alt="גרף דו צדדי מלא עם שלושה קודקודים בכל צד" />
+<div class="figcaption">גרף דו צדדי מלא עם שלושה קודקודים בכל צד</div>
+</div>
+</center>
+<p>שימוש במציין אויילר יראה לנו שיהיו <span
+class="math inline">\(F=2+E-V=2+9-6=5\)</span> תחומים. אבל, המבנה של
+הגרף מכיל יותר מרק כמות הצמתים והקשתות. האם נוכל להשתמש בו כדי למצוא
+אינופרמציה נוספת על מספר התחומים?</p>
+<p>לדוגמא, בואו נסתכל שוב על הגרף</p>
+<center>
+<img src="planar-graph.jpg" />
+</center>
+<p>אפשר להגדיר כל תחום ע”י המסלול שסובב אותו נגד כיוון השעון. למשל
+בדוגמא למעלה נקבל את התחומים:</p>
+<ul>
+<li><span class="math inline">\(A: 2 \to 4 \to 3 \to 2\)</span></li>
+<li><span class="math inline">\(B: 3 \to 4 \to 7 \to 6 \to
+3\)</span></li>
+<li><span class="math inline">\(C: 3 \to 6 \to 7 \to 5 \to
+3\)</span></li>
+<li><span class="math inline">\(C: 1 \to 2 \to 3 \to 5 \to 7 \to 4 \to 2
+\to 1\)</span></li>
+</ul>
+<p>מה יקרה בגרף <span class="math inline">\(K_{3,3}\)</span> ? מאחר ואין
+לולאות עצמיות (קשת מצומת לעצמו) לא יכול להיות שתחום יהיה מוקף ע”י קשת
+יחידה. בנוסף, אין שני צמתים שיש בינהם שתי קשתות, לכן אי אפשר להקיף תחום
+ע”י רק שתי קשתות.</p>
+<center>
+<div class="float">
+<img src="loops.jpg"
+alt="לולאה עצמית, וקשתות מקבילות מגדירות תחומים עם קשת אחת/שתי קשתות בהתאם" />
+<div class="figcaption">לולאה עצמית, וקשתות מקבילות מגדירות תחומים עם
+קשת אחת/שתי קשתות בהתאם</div>
+</div>
+</center>
+<p>בגלל שהגרף הוא דו צדדי (כל קשת מקשרת רק בין הצדדים השונים, ולא באותו
+צד) אז כל מסלול סגור בגרף יהיה חייב להיות באורך זוגי, ולכן אם מקיפים
+תחום מסויים, אז חייבים לפחות 4 קשתות.</p>
+<p>אם נספור את כל הקשתות שצריך כדי להקיף את כל התחומים, נקבל לפחות <span
+class="math inline">\(4\times F\)</span> קשתות. אבל, נשים לב שכל קשת
+נספרת פעמיים בדיוק (למשל בדוגמא למעלה הקשת 3-4 נספרת פעם בסיבוב סביב A
+ופעם סביב B). לכן בעצם נקבל ש <span class="math inline">\(9=E \geq
+2\times F.\)</span> אבל, כבר ראינו ש <span
+class="math inline">\(F=5\)</span> , מה שמוביל אותנו לסתירה ש <span
+class="math inline">\(9\geq 2\times 5=10.\)</span> לכן, נסיק שההנחה שלנו
+הייתה שגויה, כלומר <span class="math inline">\(K_{3,3}\)</span> לא יכול
+להיות מישורי.</p>
+</div>
+<div id="אז-מתי-גרף-כלשהו-הוא-מישורי" class="section level1">
+<h1>אז מתי גרף כלשהו הוא מישורי?</h1>
+<p>ראינו שלא ניתן לצייר את <span class="math inline">\(K_{3,3}\)</span>
+במישור השטוח. האם יש עוד גרפים שהם לא מישוריים?</p>
+<p>אם גרף כלשהי מכיל עותק של <span
+class="math inline">\(K_{3,3}\)</span> , אז כמובן שגם הוא לא יהיה
+מישורי. האם יש סיבות אחרות, פחות ברורות, למה גרף הוא לא מישורי? מסתבר
+שיש: גם הגרף המלא על חמישה קודקודים (כלומר יש קשת בין כל שני קודקודים
+שונים), שמסומן ב <span class="math inline">\(K_5\)</span>, הוא לא
+מישורי, וכמובן גם כל גרף שמכיל עותק שלו.</p>
+<center>
+<div class="float">
+<img src="K5.jpg"
+alt="משמאל, הגרף המלא על 5 קודקודים. מימין גרף שמכיל “עותק שלו” - צריך למחוק את הקשתות הסגולות." />
+<div class="figcaption">משמאל, הגרף המלא על 5 קודקודים. מימין גרף שמכיל
+“עותק שלו” - צריך למחוק את הקשתות הסגולות.</div>
+</div>
+</center>
+<p>נוכל להמשיך לחפש עוד גרפים שאינם מישוריים, אבל מסתבר שיש תוצאה מאוד
+מעניינת של <a
+href="https://en.wikipedia.org/wiki/Kuratowski%27s_theorem">קוראטווסקי</a>
+שמראה שאלו המכשולים היחידים של גרף ללהיות מישורי. כלומר, גרפים מישוריים
+הם בדיוק הגרפים שלא מכילים עותק של <span
+class="math inline">\(K_{3,3}\)</span> או <span
+class="math inline">\(K_5.\)</span></p>
+</div>
+<div id="כאשר-עוזבים-את-העולם-השטוח" class="section level1">
+<h1>כאשר עוזבים את העולם השטוח</h1>
+<p>עד עכשיו רק שאלנו אם אפשר לצייר גרף על המישור השטוח וראינו דוגמאות
+לגרפים שלא ניתן לצייר שם. אבל אנחנו לא חיים על מישור שטוח, אלא על (כמעט)
+ספירה, אז האם אנחנו יכולים לצייר גרף כמו <span
+class="math inline">\(K_{3,3}\)</span> על ספירה? התשובה לכך היא לא, כי
+תמיד נוכל לפתוח את הספירה חזרה למישור ע”י הוצאת נקודה אחת, ולכן אם אפשר
+לצייר גרף על ספירה, אז נוכל לצייר אותו במישור.</p>
+<p>מה בקשר למשטחים אחרים? בצורה מפתיעה, כן ניתן לצייר את <span
+class="math inline">\(K_{3,3}\)</span> בלי חיתוכים של קשתות על הטורוס
+(=סופגנייה):</p>
+<center>
+<div class="float">
+<img src="torus.jpg" alt="נסו לחבר כל אחד מהבתים לכל אחד מהכדורים" />
+<div class="figcaption">נסו לחבר כל אחד מהבתים לכל אחד מהכדורים</div>
+</div>
+</center>
+<p>בדיוק כמו במישור, גם שם קיים מציין אויילר, רק שבטורוס הנוסחא היא
+<span class="math inline">\(V-E+F=0.\)</span></p>
+<p>אם היינו מנסים לכתוב מחדש את ה”הוכחה” מלמעלה, אז נקבל שמספר התחומים
+הוא <span class="math inline">\(F=E-V=9-6=3\)</span>, והפעם <span
+class="math inline">\(9=E\geq 2\times F=6\)</span> ולכן לא נקבל סתירה
+כמו הנסיון לצייר את הגרף במישור.</p>
+<p>מה קורה עם משטחים אחרים? אתם מוזמנים לנסות ליצור משטחים חדשים ולבדוק
+באיזה מהם אפשר לצייר את <span
+class="math inline">\(K_{3,3}.\)</span></p>
+</div>
+<div id="איפה-אפשר-ללמוד-עוד" class="section level1">
+<h1>איפה אפשר ללמוד עוד?</h1>
+<p>את התורה הבסיסית על גרפים אפשר ללמוד בקורס על <em><a
+href="https://students.technion.ac.il/local/technionsearch/course/104286/202202?lang=he">קומבינטוריקה</a></em>,
+ואילו על דברים כמו מציין אויילר בדרך כלל לומדים בקורסי קומבינטוריקה
+מתקדמים כמו <em><a
+href="https://students.technion.ac.il/local/technionsearch/course/106304/202202?lang=he">נושאים
+נבחרים בקומבינטוריקה</a></em> או <em><a
+href="https://students.technion.ac.il/local/technionsearch/course/106716/202202?lang=he">פרקים
+נבחרים בקומבינטוריקה</a></em> (כתלות בנושאים שנבחרו לאותו סמסטר). באופן
+כללי יותר, מציין אויילר, שתלוי במבנה של הגרף במימד 0 (צמתים), 1 (קשתות)
+ו 2 (תחומים) הוא אחד מתוך “מציינים” רבים אחרים שמוגדרים בעולם של
+טופולוגיה אלגברית (ובמיוחד הומולוגיה של גרפים), ואפשר ללמוד על זה בקורס
+<em><a
+href="https://students.technion.ac.il/local/technionsearch/course/106383/202202?lang=he">טופולוגיה
+אלגברית</a></em>.</p>
+<!-- find out if I can do this without creating a separate html
+file just for the jave script. In particular how to directly controling
+the size and alignment of the animation-->
+<!--
+
+<iframe height="400" style="width: 100%;" scrolling="no" title="First p5.js Sketch" src="js/sketch.html" frameborder="no" allowtransparency="true" allowfullscreen="true" align="center">
+
+</iframe>
+
+-->
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
