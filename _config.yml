@@ -5,3 +5,12 @@ plugins:
 #  math_engine: mathjax
 title: This is a title
 description: And I even have a description
+
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
+gems:
+  - jekyll-feed
+plugins:
+  - jekyll-relative-links
+
