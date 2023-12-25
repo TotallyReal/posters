@@ -3,6 +3,21 @@
 ### A third-level heading
 another line
 
+<details>
+<summary> This is the title</summary>
+
+ 1. this is one
+ 2. this is two
+
+- bullet 1
+- bullet 2
+</details>
+
+ 1. this is one
+ 2. this is two
+
+- bullet 1
+- bullet 2
 
 c
 
