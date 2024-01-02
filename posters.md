@@ -5,6 +5,9 @@ lang: "en"
 dir: "ltr"
 ---
 
+$\newcommand{\RR}{\mathbb{R}}$
+$f:\RR\to \RR$
+
 # A first-level heading
 ## A second-level heading
 ### A third-level heading
