@@ -16,11 +16,11 @@ another line
 <details>
 <summary> This is the title</summary>
 
- 1. this is one
- 2. this is two
+ 1. this is one (inside collapsible)
+ 2. this is two (inside collapsible)
 
-- bullet 1
-- bullet 2
+- bullet 1 (inside collapsible)
+- bullet 2 (inside collapsible)
 </details>
 
  1. this is one
