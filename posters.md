@@ -21,6 +21,7 @@ another line
 
 - bullet 1 (inside collapsible)
 - bullet 2 (inside collapsible)
+
 </details>
 
  1. this is one
